@@ -1,0 +1,20 @@
+{
+  "name": "smart-contact-manager",
+  "version": "1.0.0",
+  "description": "this is a smart contact manager project using spring boot",
+  "main": "(index.js) src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "contact",
+    "manager",
+    "frontend"
+  ],
+  "author": "Piyush",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}

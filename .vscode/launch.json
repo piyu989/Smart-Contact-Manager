@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SmartCmApplication<Smart-CM>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.cm.SmartCmApplication",
+            "projectName": "Smart-CM",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

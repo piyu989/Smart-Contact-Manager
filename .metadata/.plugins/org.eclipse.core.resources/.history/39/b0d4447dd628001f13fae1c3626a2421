@@ -1,0 +1,2 @@
+spring.application.name=Smart-CM
+server.port=8081
