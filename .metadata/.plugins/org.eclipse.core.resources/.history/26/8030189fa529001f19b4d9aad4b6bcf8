@@ -1,0 +1,13 @@
+<!doctype html>
+<html 
+lang="en" 
+th:fragment="parent"
+xmlns:th="http://www.thymleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Base</title>
+</head>
+<body>
+	Base Page
+</body>
+</html>
