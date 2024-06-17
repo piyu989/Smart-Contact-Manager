@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en"
+th:replace="~{base::parent(~{::#content},~{::title},~{::script})}"
 >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title  th:fragment="title">Service Page</title>
+    <title>Service</title>
 </head>
 <body>
-    <section id="content" th:fragment="content">
-        <h1>welcome to service page</h1>
-    </section>
-    <section id="script" th:fragment="script">
-        <script th:inline="javascript">
-            console.log("service page")
-        </script>
-    </section>
+    <div id="content">
+        <h1>Service page</h1>
+    </div>
+    <script>
+        console.log("service page")
+    </script>
 </body>
 </html>
-<!--th:replace="~{base::parent(~{::#content},~{::title},~{::script})}"-->

@@ -1,24 +1,40 @@
 <!DOCTYPE html>
-<html 
-lang="en"
-th:fragment="parent(content,title,script)"
+<html lang="en"
 xmlns:th="http://www.thymleaf.org"
+th:fragment="parent(content,title,script)"
 >
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title th:replace="${title}">SCM</title>
-	<link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-th-replace="${title}">SCM</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"/>
 </head>
 <body>
+    <!-- common header -->
 
-	<!--main content-->
+    <ul class="p-4">
+        <li>
+            <a data-th-href="@{'/home'}">Home</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/about'}">About</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/service'}">Services</a>
+        </li>
+    </ul>
 
-	<section data-th-replace="${content}"></section>
-	<!--flow bite content-->
+    <!-- main content -->
+     <div class="p-4">
+        <section data-th-replace="${content}"></section>
+     </div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-	<th:block data-th-href="${script}"></th:block>
+    <!--flow bite content-->
+
+    <!-- common footer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <th:block data-th-replace="${script}">
+    </th:block>
 </body>
 </html>
