@@ -24,5 +24,23 @@ public class PageController {
 		model.addAttribute("name","piyush");
 		return "service";
 	}
+
+	@RequestMapping("/contact")
+	public String contact(Model model) {
+		model.addAttribute("name","piyush");
+		return "contact";
+	}
+
+	@RequestMapping("/login")
+	public String login(Model model) {
+		model.addAttribute("name","piyush");
+		return "login";
+	}
+
+	@RequestMapping("/signup")
+	public String signup(Model model) {
+		model.addAttribute("name","piyush");
+		return "signup";
+	}
 	
 }
