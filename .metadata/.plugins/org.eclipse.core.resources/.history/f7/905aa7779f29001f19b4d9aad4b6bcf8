@@ -1,5 +1,0 @@
-<div th:fragment="parent(x,y)">
-	<h1>this is parent fragement</h1>
-	<h1>ram ram</h1>
-	<div>value of x is <span th:text="${x}"></span></div>
-</div>

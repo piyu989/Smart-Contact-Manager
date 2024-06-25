@@ -1,5 +1,0 @@
-<div th:fragment="parent(content)">
-	<h1>this is parent fragement</h1>
-	<h1>ram ram</h1>
-	<div th:replace="${content}"></div>
-</div>

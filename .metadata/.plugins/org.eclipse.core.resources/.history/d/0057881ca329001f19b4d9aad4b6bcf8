@@ -1,8 +1,0 @@
-<!doctype html>
-<html lang="en"
-th:inser="~{base :: parent}">
-<head></head>
-<body>
-	
-</body>
-</html>
