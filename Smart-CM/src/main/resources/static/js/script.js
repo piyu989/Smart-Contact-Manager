@@ -19,6 +19,9 @@ function changeTheme(){
         setTheme(currentTheme);
         document.querySelector('html').classList.remove(oldTheme);
         document.querySelector('html').classList.add(currentTheme);
+
+        changeThemeButton.querySelector("span").textContent = currentTheme == "light"?"dark" : "light";
+
     });
 }
 
@@ -28,6 +31,5 @@ function setTheme(theme){
 
 function getTheme(){
     let theme=localStorage.getItem("theme");
-    if(theme) return theme;
-    else return "light";
+    return theme ? theme : "light";
 }
