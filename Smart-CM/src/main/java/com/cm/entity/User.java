@@ -4,14 +4,19 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 import java.util.*;
 
 @Entity(name="user")
@@ -21,6 +26,8 @@ import java.util.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@ToString
 public class User {
 	@Id
 	private String userId;
@@ -31,6 +38,8 @@ public class User {
 	private String about;
 	@Column(length = 10000)
 	private String pic;
+	private String password;
+	private String phoneNumber;
 	
 	//information
 	private boolean enabled=false;
