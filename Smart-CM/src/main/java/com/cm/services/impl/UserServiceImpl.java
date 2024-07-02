@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User save(User user) {
 		// TODO Auto-generated method stub
-		String userId=UUID.randomUUID().toString();
+		String userId = UUID.randomUUID().toString() + "-" + System.currentTimeMillis();
 		user.setUserId(userId);
 		return userRepo.save(user);
 	}

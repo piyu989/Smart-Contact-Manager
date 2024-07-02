@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="com.cm.entity.Providers"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
     <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.AssertFalse.List"/>
@@ -19,14 +18,9 @@
     <fullyQualifiedTypeName name="org.hibernate.annotations.ManyToAny"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="com.cm.entity.Contact"/>
-    <fullyQualifiedTypeName name="lombok.Getter"/>
-    <fullyQualifiedTypeName name="lombok.Setter"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="com.cm.form.repository.UserFormRepository"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.cm.form.repository.UserRepository"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
@@ -36,9 +30,21 @@
     <fullyQualifiedTypeName name="com.cm.services.impl.UserServiceImpl"/>
     <fullyQualifiedTypeName name="com.cm.services.UserService"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="lombok.Builder"/>
     <fullyQualifiedTypeName name="com.cm.entity.User"/>
     <fullyQualifiedTypeName name="lombok.ToString"/>
     <fullyQualifiedTypeName name="javax.sound.midi.Soundbank"/>
     <fullyQualifiedTypeName name="java.util.UUID"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Enumerated"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.EnumType"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.Builder"/>
+    <fullyQualifiedTypeName name="lombok.Builder.Default"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.cm.helper.Message"/>
+    <fullyQualifiedTypeName name="com.cm.helper.MessageType"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
 </qualifiedTypeNameHistroy>

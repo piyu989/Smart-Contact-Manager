@@ -3,13 +3,19 @@ package com.cm.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cm.entity.User;
 import com.cm.form.UserForm;
+import com.cm.helper.Message;
+import com.cm.helper.MessageType;
 import com.cm.services.UserService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class PageController {
@@ -60,25 +66,29 @@ public class PageController {
 	}
 
 	@PostMapping("/do-register")
-	public String processRegister(@ModelAttribute UserForm userForm){
+	public String processRegister(@Valid @ModelAttribute UserForm userForm, BindingResult rBindingResult, HttpSession session){
 		System.out.println(userForm);
 		System.out.println("sita ram");
 		
-		User user=User.builder()
-				.name(userForm.getName())
-				.email(userForm.getEmail())
-				.phoneNumber(userForm.getPhoneNumber())
-				.password(userForm.getPassword())
-				.about(userForm.getAbout())
-				.pic("https://www.google.com/imgres?q=sita%20ram&imgurl=http%3A%2F%2Fonlineprasad.com%2Fcdn%2Fshop%2Fproducts%2Fsitaram-1_grande.jpg%3Fv%3D1595505094&imgrefurl=https%3A%2F%2Fonlineprasad.com%2Fproducts%2Fprasad-sitaram-special&docid=8aVOb6jo_wPpIM&tbnid=v9fuj16M2srUHM&vet=12ahUKEwiL3oTdgYSHAxXeRWcHHSflA8AQM3oECHYQAA..i&w=552&h=600&hcb=2&ved=2ahUKEwiL3oTdgYSHAxXeRWcHHSflA8AQM3oECHYQAA")
-				.build();
-		
+		User user=new User();
+		user.setName(userForm.getName());
+		user.setEmail(userForm.getEmail());
+		user.setPhoneNumber(userForm.getEmail());
+		user.setAbout(userForm.getEmail());
+		user.setPassword(userForm.getPassword());
+		user.setPic("https://www.google.com/imgres?q=sita%20ram&imgurl=http%3A%2F%2Fonlineprasad.com%2Fcdn%2Fshop%2Fproducts%2Fsitaram-1_grande.jpg%3Fv%3D1595505094&imgrefurl=https%3A%2F%2Fonlineprasad.com%2Fproducts%2Fprasad-sitaram-special&docid=8aVOb6jo_wPpIM&tbnid=v9fuj16M2srUHM&vet=12ahUKEwiL3oTdgYSHAxXeRWcHHSflA8AQM3oECHYQAA..i&w=552&h=600&hcb=2&ved=2ahUKEwiL3oTdgYSHAxXeRWcHHSflA8AQM3oECHYQAA");
+		if(rBindingResult.hasErrors()){
+			return "signup";
+		}
+		//fetch form data
 		User SavedUser=userService.save(user);
 		System.out.println("saved user: "+SavedUser);
-		//fetch form data
 		//validate form data
 		//save to db
 		//message="registration sucessfully
+		Message message=Message.builder().content("Registration Succesfull").type(MessageType.blue).build();
+		session.setAttribute("message",message);
+		
 		//redirect to login page
 		return "redirect:/signup";
 	}
