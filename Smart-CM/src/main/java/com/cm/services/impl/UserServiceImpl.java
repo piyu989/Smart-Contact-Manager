@@ -5,15 +5,20 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cm.entity.User;
 import com.cm.form.repository.UserRepository;
+import com.cm.helper.AppConstants;
 import com.cm.helper.ResourceNotFoundException;
 import com.cm.services.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
 	private UserRepository userRepo;
@@ -23,6 +28,8 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		String userId = UUID.randomUUID().toString() + "-" + System.currentTimeMillis();
 		user.setUserId(userId);
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setRoles_list(List.of(AppConstants.ROLE_USER));
 		return userRepo.save(user);
 	}
 
