@@ -4888,3 +4888,667 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.core.expressions.IEva
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SESSION 2024-07-05 12:25:17.167 -----------------------------------------------
+eclipse.buildId=4.19.1.202308011926
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-07-05 12:25:19.311
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY org.eclipse.jface 2 0 2024-07-05 12:25:30.606
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-05 12:25:30.606
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-07-05 12:25:36.798
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\javaw.exe
+-cp
+C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=D:/Spring Boot/Smart Contact Manager/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1720162536797
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 12:25:36.798
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-07-05 12:25:36.816
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 228
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-07-05 12:25:37.785
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sab98'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 12:25:38.842
+!MESSAGE Boot project ADDED: Smart-CM
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 12:25:38.843
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 12:25:38.844
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2024-07-05 12:26:34.132
+!MESSAGE Failed to connect to Boot app
+!STACK 0
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:732)
+	at java.base/java.util.concurrent.CompletableFuture.thenAccept(CompletableFuture.java:2182)
+	at org.springframework.ide.eclipse.boot.dash.liveprocess.DefaultLiveProcessCommandExecutor.executeCommand(DefaultLiveProcessCommandExecutor.java:60)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:219)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:1)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker.updateOwnerStatesAndFireEvents(RunStateTracker.java:216)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:151)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.changed(LiveExpression.java:137)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.refresh(LiveExpression.java:81)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveVariable.setValue(LiveVariable.java:46)
+	at org.springframework.ide.eclipse.boot.dash.util.AbstractPollingAppReadyStateMonitor$1.run(AbstractPollingAppReadyStateMonitor.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface 2 0 2024-07-05 12:31:51.733
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-05 12:31:51.733
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.text.delete.line"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.match_pair_outward,Match Pair Outward,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.match_pair_outward"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-07-05 12:32:29.477
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2024-07-05 12:33:33.507
+!MESSAGE Failed to connect to Boot app
+!STACK 0
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:732)
+	at java.base/java.util.concurrent.CompletableFuture.thenAccept(CompletableFuture.java:2182)
+	at org.springframework.ide.eclipse.boot.dash.liveprocess.DefaultLiveProcessCommandExecutor.executeCommand(DefaultLiveProcessCommandExecutor.java:60)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:219)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:1)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker.updateOwnerStatesAndFireEvents(RunStateTracker.java:216)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:151)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.changed(LiveExpression.java:137)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.refresh(LiveExpression.java:81)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveVariable.setValue(LiveVariable.java:46)
+	at org.springframework.ide.eclipse.boot.dash.util.AbstractPollingAppReadyStateMonitor$1.run(AbstractPollingAppReadyStateMonitor.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-07-05 15:09:51.968 -----------------------------------------------
+eclipse.buildId=4.19.1.202308011926
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-07-05 15:09:54.676
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY org.eclipse.jface 2 0 2024-07-05 15:10:09.070
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-05 15:10:09.070
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-07-05 15:10:14.750
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\javaw.exe
+-cp
+C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=D:/Spring Boot/Smart Contact Manager/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1720172414750
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 15:10:14.750
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-07-05 15:10:14.764
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 13576
+
+!ENTRY org.eclipse.jface 2 0 2024-07-05 15:10:15.405
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-05 15:10:15.405
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.text.delete.line"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.match_pair_outward,Match Pair Outward,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.match_pair_outward"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-07-05 15:10:16.251
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sab98'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 15:10:16.815
+!MESSAGE Boot project ADDED: Smart-CM
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 15:10:16.815
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 15:10:16.816
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2024-07-05 15:10:45.182
+!MESSAGE Failed to connect to Boot app
+!STACK 0
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:732)
+	at java.base/java.util.concurrent.CompletableFuture.thenAccept(CompletableFuture.java:2182)
+	at org.springframework.ide.eclipse.boot.dash.liveprocess.DefaultLiveProcessCommandExecutor.executeCommand(DefaultLiveProcessCommandExecutor.java:60)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:219)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:1)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker.updateOwnerStatesAndFireEvents(RunStateTracker.java:216)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:151)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.changed(LiveExpression.java:137)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.refresh(LiveExpression.java:81)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveVariable.setValue(LiveVariable.java:46)
+	at org.springframework.ide.eclipse.boot.dash.util.AbstractPollingAppReadyStateMonitor$1.run(AbstractPollingAppReadyStateMonitor.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2024-07-05 15:31:28.454
+!MESSAGE Failed to connect to Boot app
+!STACK 0
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:732)
+	at java.base/java.util.concurrent.CompletableFuture.thenAccept(CompletableFuture.java:2182)
+	at org.springframework.ide.eclipse.boot.dash.liveprocess.DefaultLiveProcessCommandExecutor.executeCommand(DefaultLiveProcessCommandExecutor.java:60)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:219)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:1)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker.updateOwnerStatesAndFireEvents(RunStateTracker.java:216)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:151)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.changed(LiveExpression.java:137)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.refresh(LiveExpression.java:81)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveVariable.setValue(LiveVariable.java:46)
+	at org.springframework.ide.eclipse.boot.dash.util.AbstractPollingAppReadyStateMonitor$1.run(AbstractPollingAppReadyStateMonitor.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-07-05 15:41:08.405 -----------------------------------------------
+eclipse.buildId=4.19.1.202308011926
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-07-05 15:41:10.467
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY org.eclipse.jface 2 0 2024-07-05 15:41:20.697
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-05 15:41:20.697
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-07-05 15:41:26.931
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\javaw.exe
+-cp
+C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=D:/Spring Boot/Smart Contact Manager/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1720174286931
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 15:41:26.932
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-07-05 15:41:26.953
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 1696
+
+!ENTRY org.eclipse.jface 2 0 2024-07-05 15:41:27.988
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-05 15:41:27.988
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.text.delete.line"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.match_pair_outward,Match Pair Outward,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.match_pair_outward"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-07-05 15:41:28.739
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sab98'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 15:41:29.340
+!MESSAGE Boot project ADDED: Smart-CM
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 15:41:29.346
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-05 15:41:29.348
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2024-07-05 15:42:14.277
+!MESSAGE Failed to connect to Boot app
+!STACK 0
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:732)
+	at java.base/java.util.concurrent.CompletableFuture.thenAccept(CompletableFuture.java:2182)
+	at org.springframework.ide.eclipse.boot.dash.liveprocess.DefaultLiveProcessCommandExecutor.executeCommand(DefaultLiveProcessCommandExecutor.java:60)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:219)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:1)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker.updateOwnerStatesAndFireEvents(RunStateTracker.java:216)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:151)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.changed(LiveExpression.java:137)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.refresh(LiveExpression.java:81)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveVariable.setValue(LiveVariable.java:46)
+	at org.springframework.ide.eclipse.boot.dash.util.AbstractPollingAppReadyStateMonitor$1.run(AbstractPollingAppReadyStateMonitor.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-07-06 15:22:17.127 -----------------------------------------------
+eclipse.buildId=4.19.1.202308011926
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-07-06 15:22:19.556
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY org.eclipse.jface 2 0 2024-07-06 15:22:32.101
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-06 15:22:32.101
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-07-06 15:22:37.550
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\javaw.exe
+-cp
+C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\classes;C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\Users\sab98\Downloads\sts-4.19.1.RELEASE\plugins\org.springframework.tooling.boot.ls_1.48.0.202308011907\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=D:/Spring Boot/Smart Contact Manager/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1720259557550
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-06 15:22:37.552
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-07-06 15:22:37.570
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 9140
+
+!ENTRY org.eclipse.jface 2 0 2024-07-06 15:22:38.487
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-06 15:22:38.487
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.text.delete.line"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.match_pair_outward,Match Pair Outward,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.match_pair_outward"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-07-06 15:22:39.251
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sab98'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-06 15:22:40.570
+!MESSAGE Boot project ADDED: Smart-CM
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-06 15:22:40.571
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-07-06 15:22:40.571
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2024-07-06 15:27:50.673
+!MESSAGE Failed to connect to Boot app
+!STACK 0
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:732)
+	at java.base/java.util.concurrent.CompletableFuture.thenAccept(CompletableFuture.java:2182)
+	at org.springframework.ide.eclipse.boot.dash.liveprocess.DefaultLiveProcessCommandExecutor.executeCommand(DefaultLiveProcessCommandExecutor.java:60)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:219)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:1)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker.updateOwnerStatesAndFireEvents(RunStateTracker.java:216)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:151)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.changed(LiveExpression.java:137)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.refresh(LiveExpression.java:81)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveVariable.setValue(LiveVariable.java:46)
+	at org.springframework.ide.eclipse.boot.dash.util.AbstractPollingAppReadyStateMonitor$1.run(AbstractPollingAppReadyStateMonitor.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface 2 0 2024-07-06 15:30:29.015
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-06 15:30:29.016
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.toggleLineCommentCommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.tm4e.languageconfiguration.toggleLineCommentCommand"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		WorkbenchHandlerServiceHandler("org.springframework.tooling.boot.ls.ToggleComment"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-06 15:30:29.016
+!MESSAGE A conflict occurred for CTRL+SHIFT+/:
+Binding(CTRL+SHIFT+/,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.addBlockCommentCommand,Add Block Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.tm4e.languageconfiguration.addBlockCommentCommand"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+/,
+	ParameterizedCommand(Command(io.emmet.eclipse.commands.toggle_comment,Toggle Comment,
+		,
+		Category(io.emmet.eclipse.commands.category,Emmet,null,true),
+		WorkbenchHandlerServiceHandler("io.emmet.eclipse.commands.toggle_comment"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-07-06 15:39:25.266
+!MESSAGE Could not get hover region due to timeout after 1000 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverRegion(LSPTextHover.java:155)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverRegion(CompositeTextHover.java:101)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4072)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3660)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.lsp4e 4 0 2024-07-06 15:39:25.322
+!MESSAGE InterruptedException
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverInfo(LSPTextHover.java:76)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverInfo2(CompositeTextHover.java:60)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-07-06 15:39:54.413
+!MESSAGE Could not get hover region due to timeout after 1000 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverRegion(LSPTextHover.java:155)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverRegion(CompositeTextHover.java:101)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4274)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4072)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3660)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-07-06 15:39:55.417
+!MESSAGE Could not get hover information due to timeout after 1000 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverInfo(LSPTextHover.java:76)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverInfo2(CompositeTextHover.java:60)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2024-07-06 15:40:26.034
+!MESSAGE Failed to connect to Boot app
+!STACK 0
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:732)
+	at java.base/java.util.concurrent.CompletableFuture.thenAccept(CompletableFuture.java:2182)
+	at org.springframework.ide.eclipse.boot.dash.liveprocess.DefaultLiveProcessCommandExecutor.executeCommand(DefaultLiveProcessCommandExecutor.java:60)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:219)
+	at org.springframework.ide.eclipse.boot.dash.BootDashActivator$1.stateChanged(BootDashActivator.java:1)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker.updateOwnerStatesAndFireEvents(RunStateTracker.java:216)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:151)
+	at org.springframework.ide.eclipse.boot.dash.util.RunStateTracker$1.gotValue(RunStateTracker.java:1)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.changed(LiveExpression.java:137)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveExpression.refresh(LiveExpression.java:81)
+	at org.springsource.ide.eclipse.commons.livexp.core.LiveVariable.setValue(LiveVariable.java:46)
+	at org.springframework.ide.eclipse.boot.dash.util.AbstractPollingAppReadyStateMonitor$1.run(AbstractPollingAppReadyStateMonitor.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface 2 0 2024-07-06 15:43:36.994
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-06 15:43:36.994
+!MESSAGE A conflict occurred for CTRL+R:
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.RunToLine,Run to Line,
+		Resume and break when execution reaches the current line,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.debug.ui.commands.RunToLine"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.debugging,,,system)
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.springframework.ide.eclipse.boot.restart.commands.restart,Trigger Restart,
+		Restart Spring Boot Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.springframework.ide.eclipse.boot.restart.commands.restart"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)

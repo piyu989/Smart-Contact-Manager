@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import com.cm.helper.AppConstants;
 import com.cm.helper.ResourceNotFoundException;
 import com.cm.services.UserService;
 
+
 @Service
 public class UserServiceImpl implements UserService {
 	
@@ -22,13 +25,15 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserRepository userRepo;
-
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Override
 	public User save(User user) {
 		// TODO Auto-generated method stub
 		String userId = UUID.randomUUID().toString() + "-" + System.currentTimeMillis();
 		user.setUserId(userId);
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		// user.setPassword(passwordEncoder.encode(user.getPassword();
 		user.setRoles_list(List.of(AppConstants.ROLE_USER));
 		return userRepo.save(user);
 	}

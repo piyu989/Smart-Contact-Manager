@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cm.entity.User;
 import com.cm.form.UserForm;
@@ -17,6 +18,8 @@ import com.cm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class PageController {
@@ -62,14 +65,10 @@ public class PageController {
 	@RequestMapping("/signup")
 	public String signup(Model model) {
 		UserForm form=new UserForm();
-		// form.setName("piyush");
-		// form.setPhoneNumber("234234234234");
-		// form.setPassword("435235235342x");
-		// form.setAbout("about");
-		// form.setEmail("Piyush Tomar");
 		model.addAttribute("userForm", form);
 		return "signup";
 	}
+	
 
 	@PostMapping("/do-register")
 	public String processRegister(@Valid @ModelAttribute UserForm userForm, BindingResult rBindingResult, HttpSession session){
