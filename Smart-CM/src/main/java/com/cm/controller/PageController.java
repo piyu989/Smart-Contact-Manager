@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cm.entity.User;
 import com.cm.form.UserForm;
@@ -18,7 +17,6 @@ import com.cm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller
@@ -97,5 +95,10 @@ public class PageController {
 		//redirect to login page
 		return "redirect:/signup";
 	}
+
+	// @RequestMapping("/log")
+	// public String returnToHome(){
+	// 	return "redirect:/login";
+	// }
 	
 }

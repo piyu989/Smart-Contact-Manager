@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private UserRepository userRepo;
+	private UserRepository userRepo; 
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		String userId = UUID.randomUUID().toString() + "-" + System.currentTimeMillis();
 		user.setUserId(userId);
-		// user.setPassword(passwordEncoder.encode(user.getPassword();
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setRoles_list(List.of(AppConstants.ROLE_USER));
 		return userRepo.save(user);
 	}

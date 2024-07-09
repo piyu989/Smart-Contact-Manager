@@ -1,5 +1,0 @@
-package com.cm.form.repository;
-
-public interface UserFormRepository {
-
-}

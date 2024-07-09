@@ -1,0 +1,25 @@
+.login-with-google-btn {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+  @apply w-full;
+  @apply px-4;
+  @apply py-2;
+  @apply text-base;
+  @apply font-medium;
+  @apply text-white;
+  @apply bg-[#4285F4];
+  @apply hover:bg-[#357AE8];
+  @apply rounded-md;
+  @apply shadow-md;
+  @apply hover:shadow-lg;
+  @apply transition;
+  @apply duration-300;
+  @apply ease-in-out;
+}
+
+.login-with-google-btn img {
+  @apply w-6;
+  @apply h-6;
+  @apply mr-2;
+}

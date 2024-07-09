@@ -3,10 +3,11 @@ package com.cm.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -18,6 +19,9 @@ public class SecurityConfig {
 	
 	@Autowired
 	private CustomUserDetailService userDetailService;
+	
+	@Autowired
+	private OAuthAuthenticationHandler oAuthAuthenticationHandler;
 	
 	@Bean
 	public AuthenticationProvider authenticationProvider() {
@@ -38,11 +42,26 @@ public class SecurityConfig {
 		httpSecurity.formLogin(formLogin->{   
 			formLogin.loginPage("/login");
 			formLogin.loginProcessingUrl("/log");
-			formLogin.successForwardUrl("/user/dashboard");
+//			formLogin.successForwardUrl("/user/dashboard");
+            formLogin.defaultSuccessUrl("/user/dashboard", true);
 			formLogin.failureForwardUrl("/login?error=true");
+//            formLogin.failureUrl("/login?error=true");  // Use failureUrl instead of failureForwardUrl
 			formLogin.usernameParameter("email");
 			formLogin.passwordParameter("password");
 		});
+		
+		httpSecurity.csrf(AbstractHttpConfigurer::disable);
+		httpSecurity.logout(logoutForm -> {
+			logoutForm.logoutUrl("/do-logout");
+			logoutForm.logoutSuccessUrl("/login?logout=true");
+		});
+		
+		httpSecurity.oauth2Login(oauth->{
+			oauth.loginPage("/login");
+//			oauth.defaultSuccessUrl("/user/dashboard", true);
+			oauth.successHandler(oAuthAuthenticationHandler);
+		});
+
 		
 		return httpSecurity.build();
 	}
