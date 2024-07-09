@@ -1,8 +1,0 @@
-client id: 223707785886-ddk034949uvod68ttc0nsttb8m2sfq7i.apps.googleusercontent.com
-client scret: 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
-
-
-spring.security.oauth2.client.registration.google.client-name=google
-spring.security.oauth2.client.registration.google.client-id=223707785886-ddk034949uvod68ttc0nsttb8m2sfq7i.apps.googleusercontent.com
-spring.security.oauth2.client.registration.google.client-secret=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
-spring.security.oauth2.client.registration.google.scope=email,profile
