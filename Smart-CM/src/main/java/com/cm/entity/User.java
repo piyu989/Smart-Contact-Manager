@@ -21,7 +21,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -85,7 +84,7 @@ public class User implements UserDetails {
 	@Column(unique = true,nullable = false,name="user_name")
 	private String email;
 	private String about;
-	@Column(length = 10000)
+	@Column(length = 100000)
 	private String pic;
 	private String password;
 	private String phoneNumber;
