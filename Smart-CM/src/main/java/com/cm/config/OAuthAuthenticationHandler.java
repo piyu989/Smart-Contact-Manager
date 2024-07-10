@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -35,8 +36,59 @@ public class OAuthAuthenticationHandler implements AuthenticationSuccessHandler 
 			Authentication authentication) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		logger.info("OAuthAuthentication");
+		
+		
 		System.out.println("sita ram");
 		
+		//identify provider
+		var oauthAuthenticationToken=(OAuth2AuthenticationToken)authentication;
+		String authorizedClientId=oauthAuthenticationToken.getAuthorizedClientRegistrationId();
+		
+		var oauthUser=(DefaultOAuth2User)authentication.getPrincipal();
+
+
+		User user=new User();
+		user.setEmailVerified(true);
+		user.setRoles_list(List.of(AppConstants.ROLE_USER));
+		user.setUserId(UUID.randomUUID().toString());
+		user.setEnabled(true);
+		
+		if(authorizedClientId.equalsIgnoreCase("google")) {
+			user.setEmail(oauthUser.getAttribute("email").toString());
+			user.setPic(oauthUser.getAttribute("pic"));
+			user.setName(oauthUser.getAttribute("name"));
+			user.setProvider(Providers.GOOGLE);
+			user.setAbout("This account is created using google");
+			user.setProvideUserId(oauthUser.getName());
+		}else if(authorizedClientId.equalsIgnoreCase("github")) {
+			String email=oauthUser.getAttribute("email")!=null?
+					oauthUser.getAttribute("email").toString():oauthUser.getAttribute("login").toString()+"@gmail.com";
+			String pic=oauthUser.getAttribute("avatar_url").toString();
+			String name=oauthUser.getAttribute("login").toString();
+			String providerUserUd=oauthUser.getName();
+			
+			user.setEmail(email);
+			user.setPic(pic);
+			user.setName(name);
+			user.setProvider(Providers.GITHUB);
+			user.setProvideUserId(providerUserUd);
+			user.setAbout("This account is created using github");
+			
+		}
+		
+		User user2=repo.findByEmail(user.getEmail()).orElse(null);
+		
+		System.out.println(user);
+		System.out.println("sita ram");
+		
+		if (user2 == null) {			 
+			repo.save(user);
+			System.out.println("ram ram");
+		}
+//		repo.save(user1);
+		
+		
+		/*
 		DefaultOAuth2User user=(DefaultOAuth2User)authentication.getPrincipal();
 		
 		// logger.info(user.getName());
@@ -73,9 +125,10 @@ public class OAuthAuthenticationHandler implements AuthenticationSuccessHandler 
 			System.out.println("ram ram");
 		}
 //		repo.save(user1);
-
-		new DefaultRedirectStrategy().sendRedirect(request, response,"/user/dashboard");
 		
+
+		*/
+		new DefaultRedirectStrategy().sendRedirect(request, response,"/user/dashboard");
 	}
 	
 }
