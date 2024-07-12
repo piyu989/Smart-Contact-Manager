@@ -128,7 +128,7 @@ public class OAuthAuthenticationHandler implements AuthenticationSuccessHandler 
 		
 
 		*/
-		new DefaultRedirectStrategy().sendRedirect(request, response,"/user/dashboard");
+		new DefaultRedirectStrategy().sendRedirect(request, response,"/user/profile");
 	}
 	
 }
