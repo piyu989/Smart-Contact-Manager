@@ -1,9 +1,0 @@
-package com.cm.config;
-
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.stereotype.Component;
-
-@Component
-public class OAuthAuthenticationHandler implements AuthenticationSuccessHandler {
-	
-}

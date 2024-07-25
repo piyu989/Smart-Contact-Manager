@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"
+th:replace="~{base::parent(~{::#content},~{::title},~{::script})}"
+>
+<head>
+    <title>
+		Add Contact
+	</title>
+</head>
+<body>
+    <div id="content" class="sm:pl-64 pt-20">
+
+		<div>
+			<div th:if="${loggedInUser}">
+				<div data-th-replace="~{user/sidebar :: sidebar}"></div>
+			</div>
+		</div>
+
+		<div id="content">
+			<div class="grid grid-cols-12">
+				<div class="col-span-3 items-center justify-center"></div>
+				<div class="col-span-6">
+					<div class="border-t-4 border-green-600 rounded-t-lg">
+						<div class="max-w-full p-6 bg-white border border-gray-200 rounded-b-lg shadow dark:bg-gray-800 dark:border-gray-700">
+							<div data-th-replace="message::messagebox"></div>
+							<h5 class="mb-0 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+								Add Contact
+							</h5>
+							<p class="text-sm mb-2">This contact will stored on cloud, we can direct email them from SCM</p>
+							<!-- this is our form -->
+
+							<form class="max-w-full mx-1">
+								<!-- name -->
+								<div class="mb-5 w-full">
+                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Name</label>
+									<div class="relative">
+                                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+											<i class="fa-solid fa-user"></i>									
+										</span>
+                                        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg pl-20 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="       Enter name here..." required />
+                                    </div>
+                                </div>
+
+								<!-- email -->
+								<div class="mb-5">
+									<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Email</label>
+									<input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter email here...." required />
+								</div>
+
+								<!-- phone number -->
+								<div class="mb-5">
+									<label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number</label>
+									<input type="text" id="phoneNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter name here...." required />
+								</div>
+
+								<!-- address -->
+								<div class="mb-5">
+									<label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Address</label>
+									<input type="text" id="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter email here...." required />
+								</div>
+							
+								<!-- about -->
+								<div class="mb-2">
+									<label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+									<textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here..."></textarea>
+								</div>
+								
+								<!-- button -->
+								<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+							  </form>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+			
+		</div>
+	</div>
+	
+    <script>
+        console.log("profile page")
+    </script>
+</body>
+</html>
