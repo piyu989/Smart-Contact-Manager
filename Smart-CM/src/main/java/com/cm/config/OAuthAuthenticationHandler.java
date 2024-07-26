@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 
 import com.cm.entity.Providers;
 import com.cm.entity.User;
-import com.cm.form.repository.UserRepository;
 import com.cm.helper.AppConstants;
+import com.cm.repository.UserRepository;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

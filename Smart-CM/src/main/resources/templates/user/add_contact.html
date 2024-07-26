@@ -8,7 +8,7 @@ th:replace="~{base::parent(~{::#content},~{::title},~{::script})}"
 	</title>
 </head>
 <body>
-    <div id="content" class="sm:pl-64 pt-20">
+    <div id="content" class="sm:pl-64 pt-20" style="height: 1000px;">
 
 		<div>
 			<div th:if="${loggedInUser}">
@@ -19,68 +19,167 @@ th:replace="~{base::parent(~{::#content},~{::title},~{::script})}"
 		<div id="content">
 			<div class="grid grid-cols-12">
 				<div class="col-span-3 items-center justify-center"></div>
-				<div class="col-span-6">
-					<div class="border-t-4 border-green-600 rounded-t-lg">
-						<div class="max-w-full p-6 bg-white border border-gray-200 rounded-b-lg shadow dark:bg-gray-800 dark:border-gray-700">
-							<div data-th-replace="message::messagebox"></div>
-							<h5 class="mb-0 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-								Add Contact
-							</h5>
-							<p class="text-sm mb-2">This contact will stored on cloud, we can direct email them from SCM</p>
-							<!-- this is our form -->
+					<div class="col-span-6">
+						<div class="border-t-4 border-green-600 rounded-t-lg">
+							<div class="max-w-full p-6 bg-white border border-gray-200 rounded-b-lg shadow dark:bg-gray-800 dark:border-gray-700">
+								<div data-th-replace="message::messagebox"></div>
+									<h5 class="mb-0 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+										Add Contact
+									</h5>
+									<p class="text-sm mb-2">This contact will stored on cloud, we can direct email them from SCM</p>
 
-							<form class="max-w-full mx-1">
-								<!-- name -->
-								<div class="mb-5 w-full">
-                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Name</label>
-									<div class="relative">
-                                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-											<i class="fa-solid fa-user"></i>									
-										</span>
-                                        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg pl-20 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="       Enter name here..." required />
-                                    </div>
-                                </div>
 
-								<!-- email -->
-								<div class="mb-5">
-									<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Email</label>
-									<input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter email here...." required />
-								</div>
+									<!-- this is our form -->
+									<form class="max-w-full mx-1">
+										<!-- name -->
+										<div class="mt-5 mb-5">
+											<label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact number</label>
+											<div class="flex items-center bg-gray-50 border border-gray-300 rounded-lg focus-within:ring-blue-500 focus-within:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-within:ring-blue-500 dark:focus-within:border-blue-500">
+												<span id="icon-email" class="pl-3 pointer-events-none text-gray-500 dark:text-gray-400">
+													<i class="fa-solid fa-user"></i>
+												</span>
+												<input 
+												type="text" 
+												id="phoneNumber" 
+												class="bg-transparent border-0 text-gray-900 text-sm pl-2.5 w-full p-2.5 dark:bg-transparent dark:border-0 dark:placeholder-gray-400 dark:text-white" placeholder="Enter contact number here..." required oninput="toggleIcon('phoneNumber')" />
+											</div>
+										</div>
 
-								<!-- phone number -->
-								<div class="mb-5">
-									<label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number</label>
-									<input type="text" id="phoneNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter name here...." required />
-								</div>
+										<div class="mt-5 mb-5">
+											<label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact email</label>
+											<div class="flex items-center bg-gray-50 border border-gray-300 rounded-lg focus-within:ring-blue-500 focus-within:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-within:ring-blue-500 dark:focus-within:border-blue-500">
+												<span id="icon-email" class="pl-3 pointer-events-none text-gray-500 dark:text-gray-400">
+													<!-- <i class="fa-solid fa-phone"></i> -->
+													<i class="fa-solid fa-envelope"></i>
+												</span>
+												<input 
+												type="text" 
+												id="phoneNumber" 
+												class="bg-transparent border-0 text-gray-900 text-sm pl-2.5 w-full p-2.5 dark:bg-transparent dark:border-0 dark:placeholder-gray-400 dark:text-white" placeholder="Enter contact number here..." required oninput="toggleIcon('phoneNumber')" />
+											</div>
+										</div>
+										
+										
+										<!-- phone number -->
+										<div class="mt-5 mb-5">
+											<label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact number</label>
+											<div class="flex items-center bg-gray-50 border border-gray-300 rounded-lg focus-within:ring-blue-500 focus-within:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-within:ring-blue-500 dark:focus-within:border-blue-500">
+												<span id="icon-email" class="pl-3 pointer-events-none text-gray-500 dark:text-gray-400">
+													<i class="fa-solid fa-phone"></i>
+													<!-- <i class="fa-solid fa-envelope"></i> -->
+												</span>
+												<input 
+												type="text" 
+												id="phoneNumber" 
+												class="bg-transparent border-0 text-gray-900 text-sm pl-2.5 w-full p-2.5 dark:bg-transparent dark:border-0 dark:placeholder-gray-400 dark:text-white" placeholder="Enter contact number here..." required oninput="toggleIcon('phoneNumber')" />
+											</div>
+										</div>
+											
+		
+										<!-- address -->
+										<div class="mt-5 mb-5">
+											<label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact number</label>
+											<div class="flex items-center bg-gray-50 border border-gray-300 rounded-lg focus-within:ring-blue-500 focus-within:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-within:ring-blue-500 dark:focus-within:border-blue-500">
+												<span id="icon-email" class="pl-3 pointer-events-none text-gray-500 dark:text-gray-400">
+													<i class="fa-solid fa-house"></i>													<!-- <i class="fa-solid fa-envelope"></i> -->
+												</span>
+												<input 
+												type="text" 
+												id="phoneNumber" 
+												class="bg-transparent border-0 text-gray-900 text-sm pl-2.5 w-full p-2.5 dark:bg-transparent dark:border-0 dark:placeholder-gray-400 dark:text-white" placeholder="Enter contact number here..." required oninput="toggleIcon('phoneNumber')" />
+											</div>
+										</div>
+									
+										<!-- about -->
+										<div class="mb-2">
+											<label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+											<textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here..."></textarea>
+										</div>
 
-								<!-- address -->
-								<div class="mb-5">
-									<label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Address</label>
-									<input type="text" id="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter email here...." required />
+										<!-- Social link -->
+										<div class="flex mb-1">
+											<div class="w-full">
+												<div class="mb-3">
+													<div class="relative mb-6">
+														<div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+															</div>
+																<div class="mt-5 mb-5">
+																	<div class="flex items-center bg-gray-50 border border-gray-300 rounded-lg focus-within:ring-blue-500 focus-within:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-within:ring-blue-500 dark:focus-within:border-blue-500">
+																		<span id="icon-email" class="pl-3 pointer-events-none text-gray-500 dark:text-gray-400">
+																			<i class="fa-solid w-4 h-4 fa-earth-americas"></i>
+																			<!-- <i class="fa-solid fa-envelope"></i> -->
+																		</span>
+																		<input 
+																		type="text" 
+																		id="phoneNumber" 
+																		class="bg-transparent border-0 text-gray-900 text-sm pl-2.5 w-full p-2.5 dark:bg-transparent dark:border-0 dark:placeholder-gray-400 dark:text-white" placeholder="Enter profile link here..." required oninput="toggleIcon('phoneNumber')" />
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class=" pl-3 w-full">
+													<div class="mb-3">
+														<div class="relative mb-3">
+															<div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+																</div>
+																	<div class="mt-5 mb-5">
+																		<div class="flex items-center bg-gray-50 border border-gray-300 rounded-lg focus-within:ring-blue-500 focus-within:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-within:ring-blue-500 dark:focus-within:border-blue-500">
+																			<span id="icon-email" class="pl-3 pointer-events-none text-gray-500 dark:text-gray-400">
+																				<i class="fa-brands fa-linkedin"></i>																				<!-- <i class="fa-solid fa-envelope"></i> -->
+																			</span>
+																			<input 
+																			type="text" 
+																			id="phoneNumber" 
+																			class="bg-transparent border-0 text-gray-900 text-sm pl-2.5 w-full p-2.5 dark:bg-transparent dark:border-0 dark:placeholder-gray-400 dark:text-white" placeholder="Enter  linkdlin id..." required oninput="toggleIcon('phoneNumber')" />
+																		</div>
+																	</div>
+																</div>	
+															</div>
+														</div>
+													</div>
+													
+													<!-- Contact image -->
+													<div class="mt-0">
+														<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="large_size">Contact Image</label>
+														<input class="block w-full text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="large_size" type="file">
+													</div>
+
+													<!-- check box -->
+													<div class="mt-2 mb-1">
+														<div class="flex items-center">
+															<input id="link-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+															<label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">This is my favourite contact.</label>
+														</div>
+													</div>
+
+													<!-- button -->
+													<button type="submit" class="  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-36 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+													
+													<button type="reset" class="mt-5 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-26 sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-blue-800">Reset</button>
+												</div>
+											</div>	
+										</div>
+									</form>
 								</div>
-							
-								<!-- about -->
-								<div class="mb-2">
-									<label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-									<textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here..."></textarea>
-								</div>
-								
-								<!-- button -->
-								<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-							  </form>
-							
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-			
-		</div>
-	</div>
 	
     <script>
-        console.log("profile page")
+        function toggleIcon(inputId) {
+			var input = document.getElementById(inputId);
+			var icon = document.getElementById('icon-' + inputId);
+			if (input.value === '') {
+				icon.style.display = 'flex';
+			} else {
+				icon.style.display = 'none';
+			}
+		}
     </script>
 </body>
 </html>

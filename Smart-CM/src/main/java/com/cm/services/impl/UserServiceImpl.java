@@ -11,9 +11,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cm.entity.User;
-import com.cm.form.repository.UserRepository;
 import com.cm.helper.AppConstants;
 import com.cm.helper.ResourceNotFoundException;
+import com.cm.repository.UserRepository;
 import com.cm.services.UserService;
 
 
