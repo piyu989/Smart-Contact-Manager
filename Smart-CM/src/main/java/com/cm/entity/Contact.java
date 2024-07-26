@@ -30,7 +30,7 @@ public class Contact {
 	private String pictures;
 	@Column(length = 10000)
 	private String description;
-	private String favourite;
+	private boolean favourite;
 	private String websiteLink;
 	private String linkedlndLink;
 	@ManyToOne
