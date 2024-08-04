@@ -6,11 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cm.entity.Contact;
+import com.cm.entity.User;
 import com.cm.repository.ContactRepository;
 import com.cm.services.ContactService;
+import com.cm.services.UserService;
 
 @Service
 public class ContactServiceimpl implements ContactService {
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private ContactRepository contactRepo;
@@ -68,6 +73,12 @@ public class ContactServiceimpl implements ContactService {
     public List<Contact> getByUserId(String userId) {
         // TODO Auto-generated method stub
         return contactRepo.findByUserId(userId);
+    }
+
+    @Override
+    public List<Contact> getByUser(User user) {
+        // TODO Auto-generated method stub
+        return contactRepo.findByUser(user);      
     }
     
 }

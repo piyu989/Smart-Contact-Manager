@@ -25,6 +25,9 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
+
 
 @Controller
 @RequestMapping("/user/contacts")
@@ -93,4 +96,21 @@ public class ContactController {
         return "redirect:/user/contacts/add";
     }
     
+
+    @GetMapping("/view")
+    public String viewContact(Authentication authentication, Model model) {
+
+        String username=Helper.getEmailOfLoggedInUser(authentication);
+
+        User user = userService.getUserByEmail(username);
+
+        List<Contact>contacts = contactService.getByUser(user);
+
+        model.addAttribute("contacts", contacts);
+
+
+        return "user/contacts";
+    }
+    
+
 }
