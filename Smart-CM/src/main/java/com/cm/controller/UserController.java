@@ -30,8 +30,8 @@ public class UserController {
 
 		User user=userService.getUserByEmail(username);
 
-		System.out.println(user.getName());
-		System.out.println(user.getEmail());
+		// System.out.println(user.getName());
+		// System.out.println(user.getEmail());
 
 		model.addAttribute("loggedInUser",user);
 	}

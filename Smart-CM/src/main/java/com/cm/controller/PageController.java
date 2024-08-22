@@ -70,8 +70,8 @@ public class PageController {
 
 	@PostMapping("/do-register")
 	public String processRegister(@Valid @ModelAttribute UserForm userForm, BindingResult rBindingResult, HttpSession session){
-		System.out.println(userForm);
-		System.out.println("sita ram");
+		// System.out.println(userForm);
+		// System.out.println("sita ram");
 		
 		User user=new User();
 		user.setName(userForm.getName());
@@ -85,7 +85,7 @@ public class PageController {
 		}
 		//fetch form data
 		User SavedUser=userService.save(user);
-		System.out.println("saved user: "+SavedUser);
+		// System.out.println("saved user: "+SavedUser);
 		//validate form data
 		//save to db
 		//message="registration sucessfully

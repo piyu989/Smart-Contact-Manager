@@ -2,6 +2,7 @@ package com.cm.controller;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,10 +10,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cm.entity.Contact;
 import com.cm.entity.User;
 import com.cm.form.ContactForm;
+import com.cm.helper.AppConstants;
 import com.cm.helper.Helper;
 import com.cm.helper.Message;
 import com.cm.helper.MessageType;
@@ -24,8 +27,6 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
 
 
 
@@ -68,7 +69,7 @@ public class ContactController {
             build());
             return "user/add_contact";
         }
-        System.out.println(contactForm);
+        // System.out.println(contactForm);
         logger.info("file informatino {}"+ contactForm.getContactImage().getOriginalFilename());
         
         String fileURL=imageService.uploadImage(contactForm.getContactImage());
@@ -89,7 +90,7 @@ public class ContactController {
 
         contactService.saveContact(contact);
         
-        System.out.println("ram ram ram ram ram");
+        // System.out.println("ram ram ram ram ram");
 
         session.setAttribute("message", Message.builder().content("Contact Added Succesfully").type(MessageType.green).build());
         
@@ -98,19 +99,58 @@ public class ContactController {
     
 
     @GetMapping("/view")
-    public String viewContact(Authentication authentication, Model model) {
+    public String viewContact(
+    @RequestParam(value="page",defaultValue = "0") int page,
+    @RequestParam(value = "size",defaultValue = "3") int size,    
+    @RequestParam(value = "direction",defaultValue = "asc") String direction,    
+    @RequestParam(value="sortBy",defaultValue = "email") String sortBy,
+    Authentication authentication, Model model) {
 
         String username=Helper.getEmailOfLoggedInUser(authentication);
 
         User user = userService.getUserByEmail(username);
 
-        List<Contact>contacts = contactService.getByUser(user);
+        Page<Contact>pageContacts = contactService.getByUser(user,page,size,direction,sortBy);
 
-        model.addAttribute("contacts", contacts);
+        model.addAttribute("pageContacts", pageContacts);
 
 
         return "user/contacts";
     }
+
+    @GetMapping("/search")
+    public String getMethodName(
+        @RequestParam("field") String field,
+        @RequestParam("keyword") String keyword,
+        @RequestParam(value = "page",defaultValue = "0")int page,
+        @RequestParam(value = "size",defaultValue = AppConstants.PAGE_SIZE)int size,
+        @RequestParam(value = "sortBy",defaultValue = "name")String sortBy,
+        @RequestParam(value = "direction",defaultValue = "asc")String direction,
+        Model model
+
+
+    ) {
+        // System.out.println("keyword,+field"+field+" "+keyword);
+        // logger.info("keyword, field", field, keyword);
+
+        Page<Contact> pageContact=null;
+
+        if(field.equalsIgnoreCase("name")){
+            pageContact=contactService.searchByName(keyword, size, page, sortBy, direction);
+        }
+        else if(field.equalsIgnoreCase("email")){
+            pageContact=contactService.searchByName(keyword, size, page, sortBy, direction);
+        }else if(field.equalsIgnoreCase("phoneNumber")){
+            pageContact=contactService.searchByPhoneNumber(keyword, size, page, sortBy, direction);
+        }
+
+        System.out.println(pageContact.toString());
+
+        model.addAttribute("pageContact", pageContact);
+
+        return "user/search";
+    }
+    
     
 
 }

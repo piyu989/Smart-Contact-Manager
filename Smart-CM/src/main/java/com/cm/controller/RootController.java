@@ -27,13 +27,13 @@ public class RootController {
 
 		User user=userService.getUserByEmail(username);
 		
-		System.out.println("sita sita ram ram");
+		// System.out.println("sita sita ram ram");
 		
 		if(user==null) {
 			System.out.println("user is null");
 		}else {			
-			System.out.println(user.getName());
-			System.out.println(user.getEmail());
+			// System.out.println(user.getName());
+			// System.out.println(user.getEmail());
 			
 			model.addAttribute("loggedInUser",user);
 		}
