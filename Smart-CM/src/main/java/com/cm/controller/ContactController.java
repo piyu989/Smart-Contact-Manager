@@ -133,20 +133,20 @@ public class ContactController {
         // System.out.println("keyword,+field"+field+" "+keyword);
         // logger.info("keyword, field", field, keyword);
 
-        Page<Contact> pageContact=null;
+        // Page<Contact> pageContact=null;
 
-        if(field.equalsIgnoreCase("name")){
-            pageContact=contactService.searchByName(keyword, size, page, sortBy, direction);
-        }
-        else if(field.equalsIgnoreCase("email")){
-            pageContact=contactService.searchByName(keyword, size, page, sortBy, direction);
-        }else if(field.equalsIgnoreCase("phoneNumber")){
-            pageContact=contactService.searchByPhoneNumber(keyword, size, page, sortBy, direction);
-        }
+        // if(field.equalsIgnoreCase("name")){
+        //     pageContact=contactService.searchByName(keyword, size, page, sortBy, direction);
+        // }
+        // else if(field.equalsIgnoreCase("email")){
+        //     pageContact=contactService.searchByName(keyword, size, page, sortBy, direction);
+        // }else if(field.equalsIgnoreCase("phoneNumber")){
+        //     pageContact=contactService.searchByPhoneNumber(keyword, size, page, sortBy, direction);
+        // }
 
-        System.out.println(pageContact.toString());
+        // System.out.println(pageContact.toString());
 
-        model.addAttribute("pageContact", pageContact);
+        // model.addAttribute("pageContact", pageContact);
 
         return "user/search";
     }
