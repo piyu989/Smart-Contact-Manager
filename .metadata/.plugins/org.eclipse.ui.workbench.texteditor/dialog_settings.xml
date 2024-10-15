@@ -8,6 +8,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="spring-boot-meaven"/>
+			<item value="spring-"/>
 			<item value="ram ram"/>
 			<item value="sita "/>
 			<item value="ram"/>
