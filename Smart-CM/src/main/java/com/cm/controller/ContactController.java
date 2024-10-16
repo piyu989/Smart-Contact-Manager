@@ -132,7 +132,7 @@ public class ContactController {
     ) {
         System.out.println("keyword,+field"+field+" "+keyword);
         logger.info("keyword, field", field, keyword);
-
+        System.out.println("sita ram");
         Page<Contact> pageContact=null;
 
         if(field.equalsIgnoreCase("name")){
