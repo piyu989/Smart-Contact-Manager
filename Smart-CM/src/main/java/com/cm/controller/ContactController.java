@@ -119,7 +119,7 @@ public class ContactController {
     }
 
     @GetMapping("/search")
-    public String search(
+    public String searchHandler(
         @RequestParam("field") String field,
         @RequestParam("keyword") String keyword,
         @RequestParam(value = "page",defaultValue = "0")int page,
@@ -132,7 +132,7 @@ public class ContactController {
     ) {
         System.out.println("keyword,+field"+field+" "+keyword);
         logger.info("keyword, field", field, keyword);
-        System.out.println("sita ram");
+
         Page<Contact> pageContact=null;
 
         if(field.equalsIgnoreCase("name")){
@@ -144,9 +144,17 @@ public class ContactController {
             pageContact=contactService.searchByPhoneNumber(keyword, size, page, sortBy, direction);
         }
 
+        if (pageContact == null || pageContact.getContent().isEmpty()) {
+            System.out.println("null null null null");
+            // model.addAttribute("message", "No contacts found");
+        } else {
+            System.out.println("not not not null null null null");
+            model.addAttribute("pageContact", pageContact);
+        }
+        
         System.out.println(pageContact.toString());
 
-        model.addAttribute("pageContact", pageContact);
+        // model.addAttribute("pageContact", pageContact);
 
         return "user/search";
     }
