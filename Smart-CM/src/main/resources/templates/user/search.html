@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
->
-  <head>
-    <title>
-      Search Page
-    </title>
-  </head>
-  <body>
+<html lang="en" th:replace="~{base::parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title>Search</title>
+</head>
+<body>
     <div id="content">
-        <div th:if="${loggedInUser}">
-            <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+        <!-- Sidebar for logged-in users -->
+        <div>
+            <div th:if="${loggedInUser}">
+                <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+            </div>
         </div>
+        
+        <!-- Main content area -->
         <div class="pl-64 pt-20">
             <div class="flex justify-center flex-col items-center">
+                
+                <!-- Page Header -->
+                <h1 class="text-5xl dark:text-white">Search Contacts</h1>
+                <p class="dark:text-gray-400">Use the form below to search through your contacts.</p>
+                
+                <!-- Contact container -->
                 <div class="contacts_container p-5 w-full max-w-7xl mx-auto">
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                            
+                        
+                        <!-- Search form -->
                         <form data-th-action="@{'/user/contacts/search'}">
-                            <div class="pt-5 pl-5 pb-4 bg-white dark:bg-gray-900  ">
+                            <div class="pt-5 pl-5 pb-4 bg-white dark:bg-gray-900">
                                 <div class="flex items-end space-x-4">
-                                    <!-- Action Div -->
+                                    <!-- Dropdown to select search field -->
                                     <div class="flex space-x-4 items-center">
-                                        <!-- Dropdown Menu -->
                                         <div class="relative flex-1">
                                             <select name="field" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                 <option selected>Select Field</option>
@@ -32,25 +38,23 @@
                                                 <option value="phone">Phone</option>
                                             </select>
                                         </div>
-                                
-                                        <!-- Search Input -->
+                                    
+                                        <!-- Input field for search -->
                                         <div class="relative">
                                             <label for="table-search-users" class="sr-only">Search</label>
                                             <input name="keyword" type="text" id="table-search-users" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
                                         </div>
-                                
-                                        <!-- Submit Button -->
+
+                                        <!-- Submit button -->
                                         <button type="submit" class="px-4 py-2 rounded-lg bg-gray-500 text-white hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                             Submit
                                         </button>
                                     </div>
                                 </div>
-                                
                             </div>
                         </form>
-                        
-                        
-        
+
+                        <!-- Contacts table -->
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
@@ -61,47 +65,40 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr 
-                                    data-th-object="${c}"
-                                    data-th-each="c : ${pageContact.getContent()}"
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    
+                                <tr data-th-object="${c}" data-th-each="c : ${pageContact.getContent()}" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center space-x-3">
-                                            <img class="w-10 h-10 rounded-full" alt="Jese image" data-th-src="@{*{pictures}}" />
+                                            <img class="w-10 h-10 rounded-full" alt="User image" data-th-src="@{*{pictures}}" />
                                             <div>
                                                 <div class="text-base font-semibold" data-th-text="*{name}">Neil Sims</div>
-                                                <div class="text-sm text-gray-500" data-th-text="*{email}">neil.sims@flowbite.com</div>
+                                                <div class="text-sm text-gray-500 dark:text-gray-400" data-th-text="*{email}">neil.sims@flowbite.com</div>
                                             </div>
                                         </div>
-                                        
                                     </th>
-        
                                     <td class="px-6 py-4">
-                                        <i class="fa-solid fa-phone w-4 h-4"></i>
+                                        <i class="fa-solid fa-phone w-4 h-4 dark:text-white"></i>
                                         <span data-th-text="*{phoneNumber}"></span>
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center">
                                             <div data-th-if="*{favourite}" class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                            <a data-th-href="@{*{websiteLink}}" target="_blank">
+                                            <a data-th-href="@{*{websiteLink}}" target="_blank" class="dark:text-blue-400">
                                                 <i class="fa-solid w-5 h-5 fa-link"></i>
                                             </a>
-                                            <a class="pl-2" data-th-href="@{*{linkedlndLink}}" target="_blank">
+                                            <a class="pl-2 dark:text-blue-400" data-th-href="@{*{linkedlndLink}}" target="_blank">
                                                 <i class="fa-brands w-6 h-6 fa-linkedin"></i>
                                             </a>
                                         </div>
-                                        
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"><i class="fa-solid w-6 h-6 fa-trash"></i></a>
-                                        <a href="#"><i class="fa-solid w-6 h-6 fa-pen"></i></a>
-                                        <a href="#"><i class="fa-solid w-6 h-6 fa-eye"></i></a>
+                                        <a href="#"><i class="fa-solid w-6 h-6 fa-trash dark:text-red-400"></i></a>
+                                        <a href="#"><i class="fa-solid w-6 h-6 fa-pen dark:text-green-400"></i></a>
+                                        <a href="#"><i class="fa-solid w-6 h-6 fa-eye dark:text-yellow-400"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        
+
                         <!-- Pagination -->
                         <div class="pagination_container p-5 text-center">
                             <nav aria-label="Page navigation example">
@@ -110,7 +107,7 @@
                                         <a data-th-href="@{'/user/contacts/view?&page='+(${pageContacts.number-1})}" href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
                                     </li>
                                     <li data-th-each="index :  ${#numbers.sequence(0,pageContacts.totalPages-1)}">
-                                        <a data-th-href="@{'/user/contacts/view?page='+${index}}" href="#" data-th-classappend="${index==pageContacts.number? 'bg-blue-50  dark:bg-gray-600' : 'bg-white dark:bg-gray-800'}" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                        <a data-th-href="@{'/user/contacts/view?page='+${index}}" href="#" data-th-classappend="${index==pageContacts.number? 'bg-blue-50 dark:bg-gray-600' : 'bg-white dark:bg-gray-800'}" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                                             <span data-th-text="${index+1}"></span>
                                         </a>
                                     </li>
@@ -120,7 +117,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -128,7 +125,7 @@
     </div>
 
     <script>
-      console.log("this is profile page");
+        console.log("search page");
     </script>
-  </body>
+</body>
 </html>

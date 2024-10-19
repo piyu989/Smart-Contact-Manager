@@ -140,7 +140,7 @@ public class ContactController {
         }
         else if(field.equalsIgnoreCase("email")){
             pageContact=contactService.searchByEmail(keyword, size, page, sortBy, direction);
-        }else if(field.equalsIgnoreCase("phoneNumber")){
+        }else if(field.equalsIgnoreCase("phone")){
             pageContact=contactService.searchByPhoneNumber(keyword, size, page, sortBy, direction);
         }
 
