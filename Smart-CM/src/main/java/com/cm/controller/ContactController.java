@@ -149,8 +149,8 @@ public class ContactController {
             // model.addAttribute("message", "No contacts found");
         } else {
             System.out.println("not not not null null null null");
-            model.addAttribute("pageContact", pageContact);
         }
+        model.addAttribute("pageContact", pageContact);
         
         System.out.println(pageContact.toString());
 
